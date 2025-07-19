@@ -10,7 +10,7 @@ from optparse import OptionParser
 import requests
 from beets.dbcore.query import NumericQuery, MatchQuery, AndQuery, OrQuery, NoneQuery
 from beets.library import Library, Item, parse_query_parts
-from beets.ui import Subcommand, decargs
+from beets.ui import Subcommand
 from confuse import Subview
 from beetsplug.yearfixer import common
 
@@ -52,7 +52,7 @@ class YearFixerCommand(Subcommand):
 
     def func(self, lib: Library, options, arguments):
         self.lib = lib
-        self.query = decargs(arguments)
+        self.query = arguments
         self.cfg_force = options.force
 
         if options.version:
